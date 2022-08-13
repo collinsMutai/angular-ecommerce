@@ -1,0 +1,11 @@
+.header{
+    height: 50px;
+    padding: 10px;
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
