@@ -8,6 +8,7 @@ import { ReversePipe } from './pipes/Reverse';
 import { ShortenPipe } from './pipes/Shorten';
 import { ProductsComponent } from './products/products.component';
 import { SearchPipe } from './pipes/SearchPipe';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchPipe } from './pipes/SearchPipe';
     ProductsComponent,
     ShortenPipe,
     ReversePipe,
-    SearchPipe
+    SearchPipe,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

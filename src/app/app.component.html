@@ -1,2 +1,5 @@
 <app-header></app-header>
-<app-products></app-products>
+<!-- event binding/child to parent -->
+<app-add-product (add)="OnAdd($event)"></app-add-product>
+<!-- property binding/parent to child -->
+<app-products [product]="products"></app-products>

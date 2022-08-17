@@ -1,0 +1,18 @@
+.products{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+.products input{
+    padding: 5px;
+    width: 300px;
+}
+.products label,button{
+    background-color: coral;
+    color: white;
+    padding: 5px 10px;
+}
+button{
+    border-style: none;
+}
