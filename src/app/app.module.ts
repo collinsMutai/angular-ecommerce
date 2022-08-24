@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { EmptyComponent } from './products/empty/empty.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AppRoutingmodule } from './appRoutingModule';
-import { ProductsModule } from './products/products.module';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { ProductsModule } from './products/products.module';
     EmptyComponent,
     NotfoundComponent,
   ],
-  imports: [BrowserModule, ProductsModule,AppRoutingmodule],
+  imports: [BrowserModule,AppRoutingmodule],
   providers: [],
   bootstrap: [AppComponent],
 })

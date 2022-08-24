@@ -5,8 +5,8 @@
   <!-- <p>{{prom | async}}</p> -->
   <div class="links">
     <a  routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-    <a routerLink="add"  routerLinkActive="active" *ngIf="authService.isLoggedin">AddProducts</a>
-    <a [routerLink]="['product']" routerLinkActive="active" *ngIf="authService.isLoggedin">Products</a>
+    <a routerLink="product/add"  routerLinkActive="active" *ngIf="authService.isLoggedin">AddProducts</a>
+    <a [routerLink]="['product']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="authService.isLoggedin">Products</a>
     <a (click)="onClick()" *ngIf="!authService.isLoggedin">Login</a>
     <a (click)="onLogout()" *ngIf="authService.isLoggedin">Logout</a>
   </div>

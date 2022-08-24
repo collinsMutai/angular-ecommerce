@@ -8,6 +8,7 @@ import { ShortenPipe } from '../pipes/Shorten';
 import { FormsModule } from '@angular/forms';
 import { ProductsRoutingModule } from './ProductsRoutingModule';
 import { SearchPipe } from '../pipes/SearchPipe';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -24,7 +25,8 @@ import { SearchPipe } from '../pipes/SearchPipe';
   imports: [
     CommonModule,
     FormsModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    SharedModule
   ]
 })
 export class ProductsModule { }

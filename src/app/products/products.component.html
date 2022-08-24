@@ -33,11 +33,10 @@
       [ngStyle]="{ backgroundColor: !product.inStock ? 'grey' : '' }"
       [ngClass]="{ 'color-white': !product.inStock }"
       [routerLink]="['/product', i]"
-      [queryParams]="{allowEdit:product.isAdmin?1:0}"
+      [queryParams]="{ allowEdit: product.isAdmin ? 1 : 0 }"
     >
       <a>{{ product.name }}</a>
     </div>
-   
   </div>
   <div><router-outlet></router-outlet></div>
 </div>
