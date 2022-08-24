@@ -1,31 +1,29 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ReversePipe } from './pipes/Reverse';
-import { ShortenPipe } from './pipes/Shorten';
-import { ProductsComponent } from './products/products.component';
-import { SearchPipe } from './pipes/SearchPipe';
-import { AddProductComponent } from './add-product/add-product.component';
+import { SampleDirective } from './Sample.directive';
+import { JituifDirective } from './jituif.directive';
+import { HomeComponent } from './home/home.component';
+import { EmptyComponent } from './products/empty/empty.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { AppRoutingmodule } from './appRoutingModule';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductsComponent,
-    ShortenPipe,
     ReversePipe,
-    SearchPipe,
-    AddProductComponent
+    SampleDirective,
+    JituifDirective,
+    HomeComponent,
+    EmptyComponent,
+    NotfoundComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, ProductsModule,AppRoutingmodule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
- 
+export class AppModule {}

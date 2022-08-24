@@ -1,5 +1,4 @@
-<p>{{ company | reverse }}</p>
-<div [ngSwitch]="day">
+<!-- <div [ngSwitch]="day">
   <p *ngSwitchCase="1">Monday</p>
   <p *ngSwitchCase="2">Tuesday</p>
   <p *ngSwitchCase="3">Wednesday</p>
@@ -8,42 +7,41 @@
   <p *ngSwitchCase="6">Saturday</p>
   <p *ngSwitchCase="7">Sunday</p>
   <p *ngSwitchDefault>No Day</p>
-</div>
+</div> -->
+<ng-content></ng-content>
 <!-- <div>
   <p>{{ date | date | uppercase }}</p>
   <p>{{ company | uppercase }}</p>
 </div> -->
 
 <!-- Searching s product -->
-  <div class="search">
-    <input type="text" [(ngModel)]="filter" placeholder="search item..." />
-  </div>
-  <!-- viewchild -->
-<p #hello>hello view child</p>
+<div class="search">
+  <input type="text" [(ngModel)]="filter" placeholder="search item..." />
+</div>
+<!-- viewchild -->
 
-  <!-- Displaying -->
+<!-- <a routerLink="/add">Go to Add Product</a> -->
+<!-- <a (click)="loadaddProduct()">Go to Add Product</a> -->
+
+<!-- Displaying -->
 <div *ngIf="products.length; else noProduct" class="container">
-  <div *ngFor="let product of products | search:filter; let i = index">
+  <div
+    class="content"
+    *ngFor="let product of products | search: filter; let i = index"
+  >
     <div
-      class="content"
       [ngStyle]="{ backgroundColor: !product.inStock ? 'grey' : '' }"
       [ngClass]="{ 'color-white': !product.inStock }"
+      [routerLink]="['/product', i]"
+      [queryParams]="{allowEdit:product.isAdmin?1:0}"
     >
-      <img [src]="product.url" alt="" />
-      <h1>{{ product.name }}</h1>
-      <p>{{ product.price | currency: "USD":"symbol":"1.2" }}</p>
-      <p>
-        -{{
-          getDiscount(product.price, product.sellingAt)
-            | number: "0.2-2"
-            | percent
-        }}
-      </p>
-      <p>{{ product.description | shorten: 20 }}</p>
+      <a>{{ product.name }}</a>
     </div>
+   
   </div>
+  <div><router-outlet></router-outlet></div>
 </div>
 
 <ng-template #noProduct>
-  <p>You Have Any Product</p>
+  <p>You Dont Have Any Product</p>
 </ng-template>

@@ -1,35 +1,46 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild, } from '@angular/core';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { Product } from '../interfaces';
+import { ProductService } from '../product.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit, AfterViewInit {
-  // ViewChild references an element in a component with its elements
-  @ViewChild('hello') paragraph!:ElementRef
-
-  // ngOnInit intitiliazes a component
-ngOnInit(): void {
-  console.log(this.paragraph);
-}
-
-// ngAfterViewInit is called after the view has been added
-ngAfterViewInit(): void {
-  console.log(this.paragraph.nativeElement.textContent);
-}
-
- @Input('product') products!:Product[]
-  date= new Date()
-  filter=''
-  company='The Jitu Company'
+export class ProductsComponent implements OnInit{
+ 
+ products!: Product[]
+  date = new Date()
+  filter = ''
   day = new Date().getDay()
-  sellingAt=0
-  description=''
-  
-
-  getDiscount(price:number, selling:number){
-    const diff = price - selling
-    return diff/price
+  sellingAt = 0
+  description = ''
+  constructor(private productService:ProductService,
+    private router:Router,
+    private route:ActivatedRoute) { }
+  ngOnInit(): void {
+    // this.products = this.productService.products
+    this.route.data.subscribe((data:Data)=>{
+      this.products= data['products']
+    })
+   
   }
+  getDiscount(price: number, selling: number) {
+    const diff = price - selling
+    return diff / price
+  }
+
+ onDelete(index:number){
+  this.productService.deleteProduct(index)
+ }
+ onUpdate(index:number){
+  this.productService.updateid.emit(index)
+ }
+
+ loadaddProduct(){
+  this.router.navigate(['/add'],{relativeTo:this.route})
+ }
+ displayProduct(i:number){
+  this.router.navigate(['product', i])
+ }
 }

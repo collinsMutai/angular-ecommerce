@@ -4,8 +4,22 @@
     background-color: coral;
     color: white;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 25px;
     margin: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.links{
+    display: flex;
+    gap: 15px;
+}
+ a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+}
+.active{
+    color: red;
 }

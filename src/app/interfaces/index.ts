@@ -7,5 +7,6 @@ export interface Product {
     url:string,
     sellingAt:number,
     description:string,
-    filter?:string
+    filter?:string,
+    isAdmin:boolean
 }

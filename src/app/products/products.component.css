@@ -2,9 +2,11 @@
   padding: 20px;
 }
 .container {
-  display: grid;
+  width: 80vw;
+  height: 80vh;
+  /* display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
-  justify-content: center; 
+  justify-content: center;  */
 }
 .content {
     display: flex;

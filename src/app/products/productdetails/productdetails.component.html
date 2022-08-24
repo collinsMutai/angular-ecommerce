@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Product Details</h1>
+    <div class="content">
+        <div class="img">
+            <img [src]="product.url" alt="">
+        </div>
+        <div class="text">
+            <h3>{{product.name}}</h3>
+            <p>{{product.description}}</p>
+            <p>{{product.price}}</p>
+            <button [ngStyle]="{ backgroundColor:'green' }"
+            (click)="onEdit()"
+            *ngIf="allowEdit"
+            >Update</button>
+            <button [ngStyle]="{ backgroundColor:'red' }"
+            (click)="onDelete()"
+            *ngIf="allowEdit"
+            >Delete</button>
+        </div>
+    </div>
+</div>
