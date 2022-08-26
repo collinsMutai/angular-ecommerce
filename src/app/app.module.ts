@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { EmptyComponent } from './products/empty/empty.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AppRoutingmodule } from './appRoutingModule';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { AppRoutingmodule } from './appRoutingModule';
     EmptyComponent,
     NotfoundComponent,
   ],
-  imports: [BrowserModule,AppRoutingmodule],
+  imports: [BrowserModule,AppRoutingmodule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })

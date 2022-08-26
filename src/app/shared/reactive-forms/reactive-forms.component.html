@@ -1,0 +1,50 @@
+<div class="formdiv" [ngStyle]="{ textAlign: 'center' }">
+  <h1>Reactive Forms</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="">Username</label>
+      <input type="text" formControlName="username"/>
+    </div>
+    <div class="form-control">
+      <label for="">Email</label>
+      <input type="text" formControlName="email" email />
+      <p class="error" *ngIf="!form.get('email')?.valid  && !form.get('email')?.touched">
+        *Please enter a valid email
+      </p>
+    </div>
+    <div class="form-control">
+      <label for="">Language</label>
+      <select formControlName="language">
+        <option value="select">Select language</option>
+        <option value="js">JS</option>
+        <option value="py">Python</option>
+        <option value="java">Java</option>
+      </select>
+    </div>
+    <div class="form-control">
+      <label for="">Level</label>
+      <div *ngFor="let i of level">
+        <input formControlName="level" value="{{ i }}" type="radio" />{{
+          i
+        }}
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Bio</label>
+      <textarea formControlName="bio" required rows="3"></textarea>
+    </div>
+    <div class="form-control">
+      <label>Location</label>
+      <div class="city">
+        <label>Country</label>
+        <input type="text" formControlName="country"  />
+        <label>City</label>
+        <input type="text" formControlName="city"  />
+        <label f>Location</label>
+        <input type="text" formControlName="location" />
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+    <button type="button">Update</button>
+  </form>
+</div>

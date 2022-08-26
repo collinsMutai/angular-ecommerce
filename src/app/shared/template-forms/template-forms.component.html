@@ -1,0 +1,46 @@
+<div class="formdiv" [ngStyle]="{'textAlign':'center'}">
+    <h1>Template Driven forms</h1>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+            <label for="">Username</label>
+            <input type="text" ngModel name="username" required>
+        </div>
+        <div class="form-control">
+            <label for="">Email</label>
+            <input type="text" ngModel name="email" required email #email="ngModel">
+            <p class="error" *ngIf="!email.valid && email.touched">*Please enter a valid email</p>
+        </div>
+        <div class="form-control">
+            <label for="">Language</label>
+            <select ngModel name="language" required [ngModel]="defaultvalue">
+                <option value="select">Select language</option>
+                <option value="js">JS</option>
+                <option value="py">Python</option>
+                <option value="java">Java</option>
+            </select>
+        </div>
+        <div class="form-control">
+            <label for="">Level</label>
+            <div *ngFor="let i of level">
+                <input ngModel name="level" value={{i}} required type="radio">{{i}}
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="">Bio</label>
+            <textarea ngModel name="bio" required rows="3"></textarea>
+        </div>
+        <div class="form-control">
+            <label >Location</label>
+            <div class="city" ngModelGroup="location">
+                <label >Country</label>
+                <input type="text" ngModel name="country" required>
+                <label >City</label>
+                <input type="text" ngModel name="city" required>
+                <label f>Location</label>
+                <input type="text" ngModel name="location" required>
+            </div>
+        </div>
+        <button [disabled]="!form.valid"  type="submit">Submit</button>
+        <button type="button" (click)="onUpdate()">Update</button>
+    </form>
+</div>
