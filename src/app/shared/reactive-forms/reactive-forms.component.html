@@ -3,14 +3,43 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-control">
       <label for="">Username</label>
-      <input type="text" formControlName="username"/>
+      <input type="text" formControlName="username" />
+      <div
+        *ngIf="!form.get('username')?.valid && form.get('username')?.touched"
+      >
+        <p class="error" *ngIf="!form.get('username')?.errors!['required']">
+         
+          *Unallowed username
+        </p>
+        <p
+          class="error"
+          *ngIf="!form.get('username')?.errors!['usernameForbidden']"
+        >
+        *Please enter a username
+        </p>
+      </div>
     </div>
     <div class="form-control">
       <label for="">Email</label>
-      <input type="text" formControlName="email" email />
-      <p class="error" *ngIf="!form.get('email')?.valid  && !form.get('email')?.touched">
-        *Please enter a valid email
+      <input type="text" formControlName="email"/>
+      <div
+      *ngIf="!form.get('email')!.valid && form.get('email')!.touched"
+    >
+      <p class="error" *ngIf="!form.get('email')!.errors!['required']">
+        *Please enter email
+       
       </p>
+      <p class="error" *ngIf="!form.get('email')!.errors!['email']">
+        *Please enter a valid email
+       
+      </p>
+      <p
+        class="error"
+        *ngIf="!form.get('email')!.errors!['unallowedemail']"
+      >
+      *Unallowed email
+      </p>
+    </div>
     </div>
     <div class="form-control">
       <label for="">Language</label>
@@ -24,27 +53,39 @@
     <div class="form-control">
       <label for="">Level</label>
       <div *ngFor="let i of level">
-        <input formControlName="level" value="{{ i }}" type="radio" />{{
-          i
-        }}
+        <input formControlName="level" value="{{ i }}" type="radio" />{{ i }}
       </div>
     </div>
     <div class="form-control">
       <label for="">Bio</label>
-      <textarea formControlName="bio" required rows="3"></textarea>
+      <textarea formControlName="bio" rows="3"></textarea>
     </div>
     <div class="form-control">
       <label>Location</label>
-      <div class="city">
+      <div class="city" formGroupName="address">
         <label>Country</label>
-        <input type="text" formControlName="country"  />
+        <input type="text" formControlName="country" />
         <label>City</label>
-        <input type="text" formControlName="city"  />
+        <input type="text" formControlName="city" />
         <label f>Location</label>
         <input type="text" formControlName="location" />
       </div>
     </div>
-    <button type="submit">Submit</button>
-    <button type="button">Update</button>
+    <div class="form-control" formArrayName="skills">
+      <h1>Skills</h1>
+      <button type="button" (click)="onAdd()">Add a Skill</button>
+      <div *ngFor="let control of getControls(); let i = index">
+        <input [formControlName]="i" />
+        <p (click)="onRemove(i)">x</p>
+      </div>
+    </div>
+    <div class="form-control">
+      <button type="submit">Submit</button>
+    </div>
+    <div class="form-control">
+      <button type="button" (click)="onUpdate()">update</button>
+    </div>
+   
+   
   </form>
 </div>
