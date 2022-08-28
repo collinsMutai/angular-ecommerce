@@ -1,0 +1,13 @@
+
+<div class="div1" [@div]="state">
+    <h1>Animations</h1>
+</div>
+
+<button (click)="changeState()">move</button>
+
+<input [(ngModel)]="name" />
+<button (click)="add()">add</button>
+<ul *ngFor="let name of names;  let i = index">
+    <li [@list] (click)="onDelete(i)">{{name}}</li>
+</ul>
+

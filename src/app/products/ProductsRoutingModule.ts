@@ -16,7 +16,7 @@ const appRoutes: Routes = [
       {
         path: 'add',
 
-        component: AddProductComponent,
+        component: AddProductComponent, data:{animation:'add'}
       },
       {
         path: '',

@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
 
 
 
@@ -11,7 +12,8 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
   declarations: [
     FooterComponent,
     TemplateFormsComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    FormBuilderComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
   exports:[
     FooterComponent,
     TemplateFormsComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    FormBuilderComponent
   ]
 })
 export class SharedModule { }

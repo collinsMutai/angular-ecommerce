@@ -1,0 +1,116 @@
+ <div class="formdiv" [ngStyle]="{ textAlign: 'center' }">
+    <h1>Form Builders</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <label for="">username</label>
+        <input type="text" formControlName="username">
+    </div>
+    <div class="form-control">
+        <label for="">password</label>
+        <input type="text" formControlName="password">
+        <div   *ngIf="!form.get('password')!.valid && form.get('password')!.touched">
+            <p  class="error"   *ngIf="form.get('password')!.errors!['required']">*Please enter password</p>
+            <p  class="error"   *ngIf="form.get('password')!.errors!['special']">*Please enter a special character</p>
+            <p  class="error"   *ngIf="form.get('password')!.errors!['capital']">*Password should have uppercase letter</p>
+            <p  class="error"   *ngIf="form.get('password')!.errors!['number']">*Password should have a number</p>
+            <p  *ngIf="checkMinimum()">*Password should 8 characters or more</p>
+
+        </div>
+    </div>
+    <div class="form-control">
+      <button type="submit" >submit</button>
+    </div>
+</form>
+</div>
+<!-- <div class="formdiv" [ngStyle]="{ textAlign: 'center' }">
+    <h1>Form Builders</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-control">
+        <label for="">Username</label>
+        <input type="text" formControlName="username" />
+        <div
+          *ngIf="!form.get('username')?.valid && form.get('username')?.touched"
+        >
+          <p class="error" *ngIf="!form.get('username')?.errors!['required']">
+           
+            *Unallowed username
+          </p>
+          <p
+            class="error"
+            *ngIf="!form.get('username')?.errors!['usernameForbidden']"
+          >
+          *Please enter a username
+          </p>
+        </div>
+      </div>
+      <div class="form-control">
+        <label for="">Email</label>
+        <input type="text" formControlName="email"/>
+        <div
+        *ngIf="!form.get('email')!.valid && form.get('email')!.touched"
+      >
+        <p class="error" *ngIf="!form.get('email')!.errors!['required']">
+          *Please enter email
+         
+        </p>
+        <p class="error" *ngIf="!form.get('email')!.errors!['email']">
+          *Please enter a valid email
+         
+        </p>
+        <p
+          class="error"
+          *ngIf="!form.get('email')!.errors!['unallowedemail']"
+        >
+        *Unallowed email
+        </p>
+      </div>
+      </div>
+      <div class="form-control">
+        <label for="">Language</label>
+        <select formControlName="language">
+          <option value="select">Select language</option>
+          <option value="js">JS</option>
+          <option value="py">Python</option>
+          <option value="java">Java</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="">Level</label>
+        <div *ngFor="let i of level">
+          <input formControlName="level" value="{{ i }}" type="radio" />{{ i }}
+        </div>
+      </div>
+      <div class="form-control">
+        <label for="">Bio</label>
+        <textarea formControlName="bio" rows="3"></textarea>
+      </div>
+      <div class="form-control">
+        <label>Location</label>
+        <div class="city" formGroupName="address">
+          <label>Country</label>
+          <input type="text" formControlName="country" />
+          <label>City</label>
+          <input type="text" formControlName="city" />
+          <label f>Location</label>
+          <input type="text" formControlName="location" />
+        </div>
+      </div>
+      <div class="form-control" formArrayName="skills">
+        <h1>Skills</h1>
+        <button type="button" (click)="onAdd()">Add a Skill</button>
+        <div *ngFor="let control of getControls(); let i = index">
+          <input [formControlName]="i" />
+          <p (click)="onRemove(i)">x</p>
+        </div>
+      </div>
+      <div class="form-control">
+        <button type="submit">Submit</button>
+      </div>
+      <div class="form-control">
+        <button type="button" (click)="onUpdate()">update</button>
+      </div>
+     
+     
+    </form>
+  </div> -->
+  

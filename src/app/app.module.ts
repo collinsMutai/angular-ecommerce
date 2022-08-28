@@ -10,7 +10,9 @@ import { EmptyComponent } from './products/empty/empty.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AppRoutingmodule } from './appRoutingModule';
 import { SharedModule } from './shared/shared.module';
-
+import { BrowseranimationComponent } from './browseranimation/browseranimation.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,15 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     EmptyComponent,
     NotfoundComponent,
+    BrowseranimationComponent,
   ],
-  imports: [BrowserModule,AppRoutingmodule, SharedModule],
+  imports: [
+    BrowserModule,
+    AppRoutingmodule,
+    SharedModule,
+    BrowserAnimationsModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

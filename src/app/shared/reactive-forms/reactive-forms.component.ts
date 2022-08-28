@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AsyncValidatorFn, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -20,7 +20,7 @@ export class ReactiveFormsComponent implements OnInit {
         Validators.required,
         this.checkUserName.bind(this)
       ]),
-      email: new FormControl(null, [Validators.required, Validators.email, this.checkEmails.bind(this )]),
+      email: new FormControl(null, [Validators.required, Validators.email], this.checkEmails.bind(this ) as AsyncValidatorFn),
       language: new FormControl('select', [Validators.required]),
       level: new FormControl('Pro', [Validators.required]),
       bio: new FormControl(null, [Validators.required]),

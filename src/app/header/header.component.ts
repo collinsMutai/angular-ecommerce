@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ChildrenOutletContexts } from '@angular/router';
 import { AuthService } from '../Services/auth.service';
+import {RoutingAnimation} from '../RoutingAnimations'
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  animations:[RoutingAnimation]
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public authService:AuthService){
+  constructor(public authService:AuthService, private contexts:ChildrenOutletContexts){
 
   }
 
@@ -26,4 +29,12 @@ export class HeaderComponent implements OnInit {
   onLogout(){
     this.authService.logout()
   }
+  getRouteAnimationData(){
+
+    const context = this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation']
+    console.log(context);
+    
+  }
+
+
 }

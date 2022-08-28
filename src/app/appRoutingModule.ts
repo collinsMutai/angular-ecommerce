@@ -7,14 +7,14 @@ import { AuthGuardService } from './Services/auth-guard.service';
 import { LoadingService } from './Services/loading.service';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent , data:{animation:'home'}},
   {
     path: 'product', canLoad: [AuthGuardService],
-    data:{admin:true},
+    data:{admin:true, animation:'product'},
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
   },
-  { path: 'notfound', component: NotfoundComponent },
+  { path: 'notfound', component: NotfoundComponent, data:{animation:'notfound'}},
   { path: '**', redirectTo: '/notfound' },
 ];
 @NgModule({
