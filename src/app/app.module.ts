@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowseranimationComponent } from './browseranimation/browseranimation.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms';
+import { ObservablesComponent } from './observables/observables.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     EmptyComponent,
     NotfoundComponent,
     BrowseranimationComponent,
+    ObservablesComponent,
   ],
   imports: [
     BrowserModule,
