@@ -5,10 +5,11 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
 import { ProductsComponent } from './products.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ShortenPipe } from '../pipes/Shorten';
-import { FormsModule } from '@angular/forms';
+
 import { ProductsRoutingModule } from './ProductsRoutingModule';
 import { SearchPipe } from '../pipes/SearchPipe';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
